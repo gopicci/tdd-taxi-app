@@ -13,8 +13,6 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.conf import settings
-from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework_simplejwt.views import TokenRefreshView
@@ -28,4 +26,4 @@ urlpatterns = [
     path('api/token/refresh/', TokenRefreshView.as_view(),
          name='token_refresh'),
     path('api/trip/', include('trips.urls', 'trip',)),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
